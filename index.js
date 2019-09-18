@@ -1,4 +1,3 @@
-const { argv } = require('yargs');
 const debug = require('debug')('log4js:kafka');
 const { Kafka } = require('kafkajs');
 
@@ -123,7 +122,7 @@ map.set('log4js-kafka', (config, layouts) => {
 
 // eslint-disable-next-line import/prefer-default-export
 exports.configure = (config, layouts) => {
-  const appender = argv.disableLog4jsKafka
+  const appender = process.env.DL4K === '0'
     ? map.get('stdout')
     : map.get('log4js-kafka');
   return appender(config, layouts);

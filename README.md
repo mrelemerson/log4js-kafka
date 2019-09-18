@@ -24,7 +24,6 @@ level = "debug"
 ```
 
 ### JSON
-
 ```json
 {
   "log4js": {
@@ -62,9 +61,11 @@ logger.debug('Hola mundo');
 
 ## Options
 * type: log4js-kafka
-* clienteId: project ID
-* brokers: Kafka instances
-* topic: Topics are used to organize data
+* clientId: project ID
+* brokers: kafka instances
+* topic: the topic to send
+* DL4K=0: (environment variable) disable the fakfa appender and use the console instead
+  * DL4K=0 node server.js
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
