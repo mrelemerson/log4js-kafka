@@ -25,7 +25,7 @@ level = "debug"
 
 ### JSON
 
-```JSON
+```json
 {
   "log4js": {
     "appenders": {
@@ -53,7 +53,7 @@ level = "debug"
 ## Usage
 
 ### JS
-```
+```javascript
 const log4js = require('log4js');
 const logger = log4js.getLogger('local');
 
