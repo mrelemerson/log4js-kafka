@@ -17,7 +17,7 @@ type = "log4js-kafka"
 clientId = "demo"
 brokers = [ "localhost:9092",]
 topic = "topic1"
-ssl=false
+ssl = false
 
 [log4js.categories.local]
 appenders = [ "kafka1",]
@@ -66,7 +66,7 @@ logger.debug('Hola mundo');
 * clientId: project ID
 * brokers: kafka instances
 * topic: the topic to send
-* ssl: active sll
+* ssl: active
 * DL4K=0: (environment variable) disable the fakfa appender and use the console instead
   * DL4K=0 node server.js
 
