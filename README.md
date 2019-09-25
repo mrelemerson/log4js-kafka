@@ -36,7 +36,7 @@ level = "debug"
           "localhost:9092"
         ],
         "topic": "topic1",
-        "sll": false
+        "ssl": false
       }
     },
     "categories": {
