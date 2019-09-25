@@ -5,7 +5,9 @@ function kafkaAppender(config, layout) {
   const kafka = new Kafka({
     clientId: config.clientId,
     brokers: config.brokers,
+    ssl: config.ssl
   });
+  
   const { topic, shutdownTimeout = 10000 } = config;
   const messagesToSend = [];
   let promisesWaiting = 0;
