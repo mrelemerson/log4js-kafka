@@ -107,25 +107,27 @@ function stdoutAppender(config, layout) {
 }
 
 const map = new Map();
+
 map.set('stdout', (config, layouts) => {
-  let layout = layouts.colouredLayout;
-  if (config.layout) {
-    layout = layouts.layout(config.layout.type, config.layout);
-  }
+  let layout = config.layout ?
+    layouts.layout(config.layout.type, config.layout) :
+    layouts.colouredLayout;
+
   return stdoutAppender(config, layout);
 });
 map.set('log4js-kafka', (config, layouts) => {
-  let layout = layouts.messagePassThroughLayout;
-  if (config.layout) {
-    layout = layouts.layout(config.layout.type, config.layout);
-  }
+  let layout = config.layout ?
+    layouts.layout(config.layout.type, config.layout) :
+    layouts.messagePassThroughLayout;
+
   return kafkaAppender(config, layout);
 });
 
 // eslint-disable-next-line import/prefer-default-export
 exports.configure = (config, layouts) => {
-  const appender = process.env.DL4K === '0'
-    ? map.get('stdout')
-    : map.get('log4js-kafka');
+  const appender = process.env.DL4K === '0' ? 
+    map.get('stdout') : 
+    map.get('log4js-kafka');
+  
   return appender(config, layouts);
 };
